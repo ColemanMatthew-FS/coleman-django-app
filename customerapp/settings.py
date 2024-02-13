@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+# MY CHANGE: imports the os module so I can use the path property
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -26,11 +27,13 @@ SECRET_KEY = 'django-insecure-1(=g&gh(beh1f@vkk8w3_o=ow7ou6ni-7$)-5#o#4q&-efae2%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# MY CHANGE: Allows any host
 ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
 
+# MY CHANGE: customerapp is an installed app
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -119,6 +122,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+# MY CHANGE: the staticfiles app will now traverse the static/ directory
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR,"static/"),
 )
@@ -128,4 +132,5 @@ STATICFILES_DIRS = (
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# MY CHANGE: allows any origin from localhost
 CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:*']
